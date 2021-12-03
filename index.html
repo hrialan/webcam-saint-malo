@@ -81,18 +81,9 @@
 </footer>
 
 <script>
-    const sleep = (milliseconds) => {
-        return new Promise(resolve => setTimeout(resolve, milliseconds))
-    }
     document.getElementById('webcam1').src += "?autoplay=1&mute=1&enablejsapi=1";
-
-    sleep(5000).then(() => {
-        document.getElementById('webcam2').src += "?autoplay=1&mute=1&enablejsapi=1";
-    })
-    
-    sleep(10000).then(() => {
-        document.getElementById('webcam3').src += "?autoplay=1&mute=1&enablejsapi=1";
-    })
+    document.getElementById('webcam2').src += "?autoplay=1&mute=1&enablejsapi=1"; 
+    document.getElementById('webcam3').src += "?autoplay=1&mute=1&enablejsapi=1";
 </script>
 </body>
 
