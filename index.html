@@ -33,12 +33,12 @@
 
     <div class="quarter">
         <div class="video-container">
-            <iframe width="560" height="315" src="https://www.youtube.com/embed/IHXhprIkGXs" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>            </div>
+            <iframe id="webcam1" width="560" height="315" src="https://www.youtube.com/embed/IHXhprIkGXs" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>            </div>
     </div>
 
     <div class="quarter">
         <div class="video-container">
-            <iframe width="560" height="315" src="https://www.youtube.com/embed/2uznaTjvb7I"
+            <iframe id="webcam2" width="560" height="315" src="https://www.youtube.com/embed/2uznaTjvb7I"
                     frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
                     allowfullscreen></iframe>
         </div>
@@ -46,7 +46,7 @@
 
     <div class="quarter">
         <div class="video-container">
-            <iframe width="560" height="315" src="https://www.youtube.com/embed/p6nAlz4_bdI"
+            <iframe id="webcam3" width="560" height="315" src="https://www.youtube.com/embed/p6nAlz4_bdI"
                     frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
                     allowfullscreen></iframe>
         </div>
@@ -81,7 +81,18 @@
 </footer>
 
 <script>
+    function sleepFor(sleepDuration){
+    var now = new Date().getTime();
+    while(new Date().getTime() < now + sleepDuration){ 
+        /* Do nothing */ 
+        }
+    }
 
+    document.getElementById('webcam1').src += "?autoplay=1";
+    sleepFor(100);
+    document.getElementById('webcam2').src += "?autoplay=1";
+    sleepFor(100);
+    document.getElementById('webcam3').src += "?autoplay=1";
 </script>
 </body>
 
