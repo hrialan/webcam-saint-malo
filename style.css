@@ -26,6 +26,7 @@ body {
     color: rgb(201, 201, 201);
     font-family: 'Roboto', sans-serif;
     font-weight: 300;
+    overflow-x: hidden;
 }
 
 .video-container {
@@ -65,9 +66,9 @@ nav a{
     text-decoration: none;
     font-size: small;
     color: rgb(201, 201, 201);
-    padding: O;
+    padding: 0;
     margin: 0;
-    margin-right: 20px;
+    margin-right: 15px;
     margin-left: 7px;
 }
 
