@@ -81,17 +81,8 @@
 </footer>
 
 <script>
-    function sleepFor(sleepDuration){
-    var now = new Date().getTime();
-    while(new Date().getTime() < now + sleepDuration){ 
-        /* Do nothing */ 
-        }
-    }
-
     document.getElementById('webcam1').src += "?autoplay=1";
-    sleepFor(100);
     document.getElementById('webcam2').src += "?autoplay=1";
-    sleepFor(100);
     document.getElementById('webcam3').src += "?autoplay=1";
 </script>
 </body>
