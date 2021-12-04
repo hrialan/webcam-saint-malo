@@ -54,20 +54,8 @@
 
     <div class="quarter">
         <div class="video-container">
-
-            <script type="text/javascript">
-                width = '100%';		// the width of the embedded map in pixels or percentage
-                height = '450';		// the height of the embedded map in pixels or percentage
-                border = '0';		// the width of the border around the map (zero means no border)
-                shownames = 'true';	// to display ship names on the map (true or false)
-                latitude = '48.646';	// the latitude of the center of the map, in decimal degrees
-                longitude = '-2.02';	// the longitude of the center of the map, in decimal degrees
-                zoom = '14';		// the zoom level of the map (values between 2 and 17)
-                maptype = '1';		// use 0 for Normal Map, 1 for Satellite
-                trackvessel = '0';	// MMSI of a vessel (note: vessel will be displayed only if within range of the system) - overrides "zoom" option
-                fleet = '';		// the registered email address of a user-defined fleet (user's default fleet is used)
-            </script>
-            <script type="text/javascript" src="https://www.marinetraffic.com/js/embed.js"></script>
+            <iframe id="music" style="position: absolute;width:0;height:0;border:0;" width="560" height="315" src="https://www.youtube.com/embed/5qap5aO4i9A" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            <iframe id="video1" width="560" height="315" src="https://www.youtube.com/embed/L_LUpnjgPso" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
         </div>
     </div>
 
@@ -75,8 +63,8 @@
 <footer>
     <p class="copy">&copy; 2020 Hugo Rialan / hugo.rialan[at]gmail.com<p>
     <nav>
-        <a href="./chill.html">Chill</a>
         <a href="https://github.com/hugorialan">GitHub Link</a>
+
     </nav>
 </footer>
 
@@ -84,6 +72,8 @@
     document.getElementById('webcam1').src += "?autoplay=1&mute=1&enablejsapi=1";
     document.getElementById('webcam2').src += "?autoplay=1&mute=1&enablejsapi=1"; 
     document.getElementById('webcam3').src += "?autoplay=1&mute=1&enablejsapi=1";
+    document.getElementById('video1').src += "?autoplay=1&enablejsapi=1";
+    document.getElementById('music').src += "?autoplay=1&enablejsapi=1";
 </script>
 </body>
 
