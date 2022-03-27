@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="fr">
+<head>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-BP3LCB85YQ"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'G-BP3LCB85YQ');
+    </script>
+
+
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+
+    <meta name="apple-mobile-web-app-title" content="Webcam Saint-Malo">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <link rel="apple-touch-icon-precomposed" href="public/apple-touch-icon-precomposed.png">
+
+    <meta charset="utf-8">
+    <title>Webcam Saint-Malo</title>
+    <link rel="stylesheet" href="public/style.css">
+</head> 
+<body>
+
+<div class="main_container">
+
+    <div class="quarter">
+        <div class="video-container">
+            <iframe id="webcam1" width="560" height="315" src="https://www.youtube.com/embed/IHXhprIkGXs" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>            </div>
+    </div>
+
+    <div class="quarter">
+        <div class="video-container">
+            <iframe id="webcam2" width="560" height="315" src="https://www.youtube.com/embed/2uznaTjvb7I"
+                    frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+                    allowfullscreen></iframe>
+        </div>
+    </div>
+
+    <div class="quarter">
+        <div class="video-container">
+            <iframe id="webcam3" width="560" height="315" src="https://www.youtube.com/embed/p6nAlz4_bdI"
+                    frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+                    allowfullscreen></iframe>
+        </div>
+    </div>
+
+    <div class="quarter">
+        <div class="video-container">
+            <iframe id="music" style="position: absolute;width:0;height:0;border:0;" width="560" height="315" src="https://www.youtube.com/embed/5qap5aO4i9A" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            <iframe id="webcam4" width="560" height="315" src="https://www.youtube.com/embed/DY5RYp4sxYc" 
+                    title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+    </div>
+
+</div>
+<footer>
+    <p class="copy">&copy; 2020 
+        <a href="mailto:webcam-saint-malo.6sar1@simplelogin.fr">webcam-saint-malo.6sar1@simplelogin.fr</a>
+    <p>
+    <nav>
+        <a href="https://github.com/hu-ria">GitHub Link</a>
+
+    </nav>
+</footer>
+
+<script>
+    document.getElementById('webcam1').src += "?autoplay=1&mute=1&enablejsapi=1";
+    document.getElementById('webcam2').src += "?autoplay=1&mute=1&enablejsapi=1"; 
+    document.getElementById('webcam3').src += "?autoplay=1&mute=1&enablejsapi=1";
+    document.getElementById('webcam4').src += "?autoplay=1&enablejsapi=1";
+    document.getElementById('music').src += "?autoplay=1&enablejsapi=1";
+</script>
+</body>
+
+</html>
+
