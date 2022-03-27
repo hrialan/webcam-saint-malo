@@ -17,16 +17,12 @@
 
     <meta name="apple-mobile-web-app-title" content="Webcam Saint-Malo">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <link rel="apple-touch-icon-precomposed" href="/apple-touch-icon-152x152-precomposed.jpg" sizes="152x152">
-    <link rel="apple-touch-icon-precomposed" href="/apple-touch-icon-120x120-precomposed.jpg" sizes="120x120">
-    <link rel="apple-touch-icon-precomposed" href="/apple-touch-icon-76x76-precomposed.jpg" sizes="76x76">
-    <link rel="apple-touch-icon-precomposed" href="/apple-touch-icon-precomposed.jpg">
-    <link rel="apple-touch-icon" href="/apple-touch-icon-152x152-precomposed.jpg" sizes="152x152">
+    <link rel="apple-touch-icon-precomposed" href="public/apple-touch-icon-precomposed.png">
 
     <meta charset="utf-8">
     <title>Webcam Saint-Malo</title>
-    <link rel="stylesheet" href="style.css">
-</head>
+    <link rel="stylesheet" href="public/style.css">
+</head> 
 <body>
 
 <div class="main_container">
@@ -71,18 +67,6 @@
         </div>
     </div>
 
-    <script id="wg_fwdg_112_100_1648209901850">
-        (function (window, document) {
-          var loader = function () {
-            var arg = ["s=112" ,"m=100","uid=wg_fwdg_112_100_1648209901850" ,"wj=knots" ,"tj=c" ,"waj=m" ,"odh=0" ,"doh=24" ,"fhours=240" ,"hrsm=2" ,"vt=forecasts" ,"lng=fr" ,"idbs=1" ,"p=WINDSPD,GUST,SMER,TMP,TCDC,APCP1s"];
-            var script = document.createElement("script");
-            var tag = document.getElementsByTagName("script")[0];
-            script.src = "https://www.windguru.cz/js/widget.php?"+(arg.join("&"));
-            tag.parentNode.insertBefore(script, tag);
-          };
-          window.addEventListener ? window.addEventListener("load", loader, false) : window.attachEvent("onload", loader);
-        })(window, document);
-    </script>
 
 </div>
 <footer>
@@ -95,6 +79,7 @@
 </footer>
 
 <script>
+    console.log(window.location.href)
     document.getElementById('webcam1').src += "?autoplay=1&mute=1&enablejsapi=1";
     document.getElementById('webcam2').src += "?autoplay=1&mute=1&enablejsapi=1"; 
     document.getElementById('webcam3').src += "?autoplay=1&mute=1&enablejsapi=1";
