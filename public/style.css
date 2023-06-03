@@ -11,6 +11,13 @@
         width: 100%;
     }
 
+    a{
+        font-size: large;
+    }
+
+    .copy{
+        font-size: large;
+    }
 }
 
 @import url(https://fonts.googleapis.com/css?family=Roboto:400,300,500);
