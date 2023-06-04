@@ -1,11 +1,12 @@
 <!doctype html>
 <html lang="fr">
+
 <head>
     <!-- Global site tag (gtag.js) - Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-BP3LCB85YQ"></script>
     <script>
         window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
+        function gtag() { dataLayer.push(arguments); }
         gtag('js', new Date());
 
         gtag('config', 'G-BP3LCB85YQ');
@@ -13,7 +14,7 @@
 
 
     <meta name="mobile-web-app-capable" content="yes">
-       <!--  <meta name="apple-mobile-web-app-capable" content="yes"> -->
+    <!--  <meta name="apple-mobile-web-app-capable" content="yes"> -->
 
     <meta name="apple-mobile-web-app-title" content="Webcam Saint-Malo">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -22,61 +23,67 @@
     <meta charset="utf-8">
     <title>Webcam Saint-Malo</title>
     <link rel="stylesheet" href="public/style.css">
-</head> 
+</head>
+
 <body>
 
-<div class="main_container">
+    <div class="main_container">
 
-    <div class="quarter">
-        <div class="video-container">
-            <iframe id="webcam1" width="560" height="315" src="https://www.youtube.com/embed/jwWSn7u3u-g" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>            </div>
-    </div>
-
-    <div class="quarter">
-        <div class="video-container">
-            <iframe id="webcam2" width="560" height="315" src="https://www.youtube.com/embed/2uznaTjvb7I"
+        <div class="quarter">
+            <div class="video-container">
+                <iframe id="webcam1" width="560" height="315" src="https://www.youtube.com/embed/jwWSn7u3u-g"
                     frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
                     allowfullscreen></iframe>
+            </div>
         </div>
-    </div>
 
-    <div class="quarter">
-        <div class="video-container">
-            <iframe id="webcam3" width="560" height="315" src="https://www.youtube.com/embed/p6nAlz4_bdI"
+        <div class="quarter">
+            <div class="video-container">
+                <iframe id="webcam2" width="560" height="315" src="https://www.youtube.com/embed/2uznaTjvb7I"
                     frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
                     allowfullscreen></iframe>
+            </div>
+        </div>
+
+        <div class="quarter">
+            <div class="video-container">
+                <iframe id="webcam3" width="560" height="315" src="https://www.youtube.com/embed/p6nAlz4_bdI"
+                    frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+                    allowfullscreen></iframe>
+            </div>
+        </div>
+
+        <div class="quarter">
+            <div class="video-container">
+                <iframe id="webcam4" width="560" height="315" src="https://www.youtube.com/embed/IntvC59kb3Y"
+                    frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+                    allowfullscreen></iframe>
+            </div>
+        </div>
+
+        <div class="bottom_wind">
+            <iframe frameborder="0" marginheight="1" marginwidth="1" scrolling="no"
+                src="https://widget.holfuy.com/?station=1476&su=knots&t=C&lang=fr&mode=average&avgrows=42"
+                style="width:100%;"></iframe>
         </div>
     </div>
 
-    <div class="quarter">
-        <div class="video-container">
-            <iframe id="webcam4" width="560" height="315" src="https://www.youtube.com/embed/IntvC59kb3Y"
-            frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
-            allowfullscreen></iframe>
-        </div>
-    </div>
+    <footer>
+        <p class="copy">&copy; 2023 /
+            <a href="mailto:contact-webcam-saint-malo@hrialan.fr">contact-webcam-saint-malo@hrialan.fr</a>
+        <p>
+        <nav>
+            <a
+                href="https://script.google.com/macros/s/AKfycbzu2xtLFNjATg3oquzWtmkVVuC-w_LkwgNkVPY-IWr3YT9R1CS9O6tm28Trp75z1Mr2/exec">Signaler un problème sur une webcam</a>
+        </nav>
+    </footer>
 
-    <div class="bottom_wind">
-        <iframe frameborder="0" marginheight="1" marginwidth="1" scrolling="no"  src="https://widget.holfuy.com/?station=1476&su=knots&t=C&lang=fr&mode=average&avgrows=42" style="width:100%;"></iframe>
-    </div>
-</div>
-
-<footer>
-    <p class="copy">&copy; 2023 / 
-        <a href="mailto:contact-webcam-saint-malo@hrialan.fr">contact-webcam-saint-malo@hrialan.fr</a>
-    <p>
-    <nav>
-        <a href="https://script.google.com/macros/s/AKfycbzu2xtLFNjATg3oquzWtmkVVuC-w_LkwgNkVPY-IWr3YT9R1CS9O6tm28Trp75z1Mr2/exec">Signaler un problème sur une webcam</a>
-    </nav>
-</footer>
-
-<script>
-    document.getElementById('webcam1').src += "?autoplay=1&mute=1&enablejsapi=1";
-    document.getElementById('webcam2').src += "?autoplay=1&mute=1&enablejsapi=1"; 
-    document.getElementById('webcam3').src += "?autoplay=1&mute=1&enablejsapi=1";
-    document.getElementById('webcam4').src += "?autoplay=1&mute=1&enablejsapi=1";
-</script>
+    <script>
+        document.getElementById('webcam1').src += "?autoplay=1&mute=1&enablejsapi=1";
+        document.getElementById('webcam2').src += "?autoplay=1&mute=1&enablejsapi=1";
+        document.getElementById('webcam3').src += "?autoplay=1&mute=1&enablejsapi=1";
+        document.getElementById('webcam4').src += "?autoplay=1&mute=1&enablejsapi=1";
+    </script>
 </body>
 
 </html>
-
