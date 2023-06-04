@@ -9,11 +9,11 @@
     }
 
     nav a {
-        font-size: 0.7em;
+        font-size: 1.5vw;
     }
 
     .copy {
-        font-size: 0.7em;
+        font-size: 1.5vw;
     }
 }
 
@@ -26,7 +26,7 @@ body {
     margin: 0;
     padding: 0;
     background: rgb(27, 27, 29);
-    font-size: 1.5em;
+    font-size: 2.3vw;
     color: rgb(201, 201, 201);
     font-family: 'Roboto', sans-serif;
     font-weight: 300;
