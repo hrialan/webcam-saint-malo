@@ -50,25 +50,17 @@
 
     <div class="quarter">
         <div class="video-container">
-
-            <script type="text/javascript">
-                width = '100%';		// the width of the embedded map in pixels or percentage
-                height = '450';		// the height of the embedded map in pixels or percentage
-                border = '0';		// the width of the border around the map (zero means no border)
-                shownames = 'true';	// to display ship names on the map (true or false)
-                latitude = '48.646';	// the latitude of the center of the map, in decimal degrees
-                longitude = '-2.02';	// the longitude of the center of the map, in decimal degrees
-                zoom = '14';		// the zoom level of the map (values between 2 and 17)
-                maptype = '1';		// use 0 for Normal Map, 1 for Satellite
-                trackvessel = '0';	// MMSI of a vessel (note: vessel will be displayed only if within range of the system) - overrides "zoom" option
-                fleet = '';		// the registered email address of a user-defined fleet (user's default fleet is used)
-            </script>
-            <script type="text/javascript" src="https://www.marinetraffic.com/js/embed.js"></script>
+            <iframe id="webcam4" width="560" height="315" src="https://www.youtube.com/embed/IntvC59kb3Y"
+            frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen></iframe>
         </div>
     </div>
 
-
+    <div class="bottom_wind">
+        <iframe frameborder="0" marginheight="1" marginwidth="1" scrolling="no"  src="https://widget.holfuy.com/?station=1476&su=knots&t=C&lang=fr&mode=average&avgrows=42" style="width:100%;"></iframe>
+    </div>
 </div>
+
 <footer>
     <p class="copy">&copy; 2023 / 
         <a href="mailto:contact-webcam-saint-malo@hrialan.fr">contact-webcam-saint-malo@hrialan.fr</a>
@@ -83,6 +75,7 @@
     document.getElementById('webcam1').src += "?autoplay=1&mute=1&enablejsapi=1";
     document.getElementById('webcam2').src += "?autoplay=1&mute=1&enablejsapi=1"; 
     document.getElementById('webcam3').src += "?autoplay=1&mute=1&enablejsapi=1";
+    document.getElementById('webcam4').src += "?autoplay=1&mute=1&enablejsapi=1";
 </script>
 </body>
 
