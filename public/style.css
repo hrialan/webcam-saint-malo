@@ -84,3 +84,15 @@ nav a {
 .bottom_wind {
     width: 100%;
 }
+
+.banner {
+    background-color: #ffffcc;
+    text-align: center;
+    font-size: 16px;
+    color: #333333;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
