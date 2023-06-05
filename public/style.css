@@ -51,6 +51,11 @@ body {
     overflow: hidden;
 }
 
+#gosurf {
+    transform: scale(1.13);
+    transform-origin: bottom;
+}
+
 .copy {
     margin-top: 0;
     margin-left: 3px;
