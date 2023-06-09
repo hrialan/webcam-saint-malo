@@ -34,31 +34,32 @@
 
         <div class="quarter">
             <div class="video-container">
-                <iframe id="webcam1" width="560" height="315" src="https://www.youtube.com/embed/jwWSn7u3u-g"
-                    frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+                <iframe id="webcam1" width="560" height="315" src="" frameborder="0"
+                    allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
                     allowfullscreen></iframe>
             </div>
         </div>
 
         <div class="quarter">
             <div class="video-container">
-                <iframe id="webcam2" width="560" height="315" src="https://www.youtube.com/embed/J3xg6-S2bFU"
-                    frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+                <iframe id="webcam2" width="560" height="315" src="" frameborder="0"
+                    allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
                     allowfullscreen></iframe>
             </div>
         </div>
 
         <div class="quarter">
             <div class="video-container">
-                <iframe id="webcam3" width="560" height="315" src="https://www.youtube.com/embed/p6nAlz4_bdI"
-                    frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+                <iframe id="webcam3" width="560" height="315" src="" frameborder="0"
+                    allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
                     allowfullscreen></iframe>
             </div>
         </div>
 
         <div class="quarter">
             <div class="video-container">
-                <iframe id="gosurf" src="https://gosurf.fr/webcam/fr/148/Saint-Malo-Plage-de-la-Hoguette" width="100%" height="100%" frameborder="0" scrolling="no" allowfullscreen="allowfullscreen"></iframe>
+                <iframe id="webcam4" src="" width="100%" height="100%" frameborder="0" scrolling="no"
+                    allowfullscreen="allowfullscreen"></iframe>
             </div>
         </div>
 
@@ -80,9 +81,19 @@
     </footer>
 
     <script>
-        for (let i = 1; i < 4; i++) {
-            document.getElementById('webcam' + i).src += "?autoplay=1&mute=1&enablejsapi=1";
-        }
+        // Variables pour les URL des vidéos iframe
+        var webcam1Url = "https://www.youtube.com/embed/J3xg6-S2bFU";
+        var webcam2Url = "https://www.youtube.com/embed/p6nAlz4_bdI";
+        var webcam3Url = "https://www.youtube.com/embed/jwWSn7u3u-g";
+        var gosurfUrl = "https://gosurf.fr/webcam/fr/148/Saint-Malo-Plage-de-la-Hoguette";
+
+        // Ajouter les URL aux iframes
+        document.getElementById('webcam1').src = webcam1Url + "?autoplay=1&mute=1&enablejsapi=1";
+        document.getElementById('webcam2').src = webcam2Url + "?autoplay=1&mute=1&enablejsapi=1";
+        document.getElementById('webcam3').src = webcam3Url + "?autoplay=1&mute=1&enablejsapi=1";
+        document.getElementById('webcam4').src = gosurfUrl;
+
+        // Masquer l'élément .header
         var headerElement = document.querySelector('.header');
         headerElement.style.display = 'none';
     </script>
