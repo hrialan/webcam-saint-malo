@@ -52,8 +52,8 @@ body {
 }
 
 #webcam4 {
-    transform: scale(1.13);
-    transform-origin: bottom;
+    background: rgba(244,244,244,255);
+    border-radius: 3px;
 }
 
 .copy {
