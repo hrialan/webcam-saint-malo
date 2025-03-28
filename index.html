@@ -1,7 +1,11 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="fr">
-
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Webcam Saint-Malo</title>
+    <link rel="stylesheet" href="style.css">
+
     <!-- Global site tag (gtag.js) - Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-BP3LCB85YQ"></script>
     <script>
@@ -12,101 +16,18 @@
         gtag('config', 'G-BP3LCB85YQ');
     </script>
 
-
     <meta name="mobile-web-app-capable" content="yes">
-    <!--  <meta name="apple-mobile-web-app-capable" content="yes"> -->
-
     <meta name="apple-mobile-web-app-title" content="Webcam Saint-Malo">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <link rel="apple-touch-icon-precomposed" href="public/apple-touch-icon-precomposed.png">
-
-    <meta charset="utf-8">
-    <title>Webcam Saint-Malo</title>
-    <link rel="stylesheet" href="public/style.css">
 </head>
-
 <body>
-    <!--
-    <div class="banner">
-        <p> ⚠️ INFO : La webcam des Thermes Marins est actuellement hors service. La vidéo affichée n'est pas en direct. Elle sera de retour dès qu’elle sera réparée.</p>
+    <div class="container">
+        <div class="grid-container" id="video-container"></div>
+        <footer class="copyright"></footer>
     </div>
-    -->
     
-    <div class="main_container">
-
-        <div class="quarter">
-            <div class="video-container">
-                <iframe id="webcam1" width="560" height="315" src="" frameborder="0"
-                    allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
-                    allowfullscreen></iframe>
-            </div>
-        </div>
-
-        <div class="quarter">
-            <div class="video-container">
-                <iframe id="webcam2" width="560" height="315" src="" frameborder="0"
-                    allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
-                    allowfullscreen></iframe>
-            </div>
-        </div>
-
-        <div class="quarter">
-            <div class="video-container">
-                <iframe id="webcam3" width="560" height="315" src="" frameborder="0"
-                    allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
-                    allowfullscreen></iframe>
-            </div>
-        </div>
-
-        <div class="quarter">
-            <div class="video-container" id="webcam4">
-                <script id="wg_fwdg_112_100_1698491257489">
-                    (function (window, document) {
-                      var loader = function () {
-                        var arg = ["s=112" ,"m=100","uid=wg_fwdg_112_100_1698491257489" ,"wj=knots" ,"tj=c" ,"waj=m" ,"tij=cm" ,"odh=0" ,"doh=24" ,"fhours=240" ,"hrsm=2" ,"vt=forecasts" ,"lng=en" ,"idbs=1" ,"p=WINDSPD,GUST,SMER,TMP,FLHGT,CDC,TCDC,APCP1s,SLP,RH,RATING"];
-                        var script = document.createElement("script");
-                        var tag = document.getElementsByTagName("script")[0];
-                        script.src = "https://www.windguru.cz/js/widget.php?"+(arg.join("&"));
-                        tag.parentNode.insertBefore(script, tag);
-                      };
-                      window.addEventListener ? window.addEventListener("load", loader, false) : window.attachEvent("onload", loader);
-                    })(window, document);
-                    </script>
-            </div>
-        </div>
-
-        <div class="bottom_wind">
-            <iframe frameborder="0" marginheight="1" marginwidth="1" scrolling="no"
-                src="https://widget.holfuy.com/?station=1475&su=knots&t=C&lang=fr&mode=average&avgrows=70"
-                style="width:100%;height: 130px;border-radius: 3px;"></iframe>
-        </div>
-    </div>
-
-    <footer>
-        <p class="copy">&copy; 2023 /
-            <a href="mailto:contact-webcam-saint-malo@hrialan.fr">contact-webcam-saint-malo@hrialan.fr</a>
-        <p>
-        <nav>
-            <a
-                href="https://script.google.com/macros/s/AKfycbzu2xtLFNjATg3oquzWtmkVVuC-w_LkwgNkVPY-IWr3YT9R1CS9O6tm28Trp75z1Mr2/exec">&#128736 Signaler un problème sur une webcam</a>
-        </nav>
-    </footer>
-
-    <script>
-        // Variables pour les URL des vidéos iframe
-        var webcam1Url = "https://www.youtube.com/embed/J3xg6-S2bFU";
-        var webcam2Url = "https://www.youtube.com/embed/p6nAlz4_bdI";
-        var webcam3Url = "https://www.youtube.com/embed/0l2LxTnQGZc";
-
-        // Ajouter les URL aux iframes
-        document.getElementById('webcam1').src = webcam1Url + "?autoplay=1&mute=1&enablejsapi=1";
-        document.getElementById('webcam2').src = webcam2Url + "?autoplay=1&mute=1&enablejsapi=1";
-        document.getElementById('webcam3').src = webcam3Url + "?autoplay=1&mute=1&enablejsapi=1";
-
-        // Masquer l'élément .header
-        var headerElement = document.querySelector('.header');
-        headerElement.style.display = 'none';
-    </script>
+    <script src="config.js"></script>
+    <script src="script.js"></script>
 </body>
-
 </html>
