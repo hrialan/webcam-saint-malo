@@ -1,0 +1,165 @@
+/* Reset et styles de base */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #2a2a2a;
+  color: #fff;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Container principal */
+#app {
+  height: 100vh;
+  width: 100vw;
+  padding: 0;
+  margin: 0;
+}
+
+/* Grid de vidéos */
+.video-grid {
+  height: 100vh;
+  width: 100vw;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  gap: 2px;
+  padding: 2px;
+  background-color: #2a2a2a;
+}
+
+/* Conteneur pour la vidéo 4 avec sélecteur */
+.video-wrapper-container {
+  position: relative;
+  width: 100%;
+  padding-bottom: 56.25%; /* Ratio 16:9 */
+}
+
+/* Wrapper pour chaque vidéo */
+.video-wrapper {
+  position: relative;
+  width: 100%;
+  padding-bottom: 56.25%; /* Ratio 16:9 */
+  overflow: hidden;
+  border-radius: 4px;
+  background-color: #1a1a1a;
+}
+
+/* Fond blanc pour les iframes (meteoblue) */
+.video-wrapper.iframe-wrapper {
+  background-color: #ffffff;
+}
+
+/* Attribution Meteoblue */
+.meteoblue-attribution {
+  position: absolute;
+  bottom: 4px;
+  right: 4px;
+  font-size: 0.65rem;
+  z-index: 10;
+  opacity: 0.5;
+}
+
+.meteoblue-attribution a {
+  color: #666;
+  text-decoration: none;
+}
+
+.meteoblue-attribution a:hover {
+  text-decoration: underline;
+}
+
+/* Wrapper dans le conteneur (pour vidéo 4) */
+.video-wrapper-container .video-wrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding-bottom: 0;
+  height: 100%;
+}
+
+/* iframe YouTube */
+.video-iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
+
+/* Sélecteur de vidéo */
+.video-selector {
+  position: absolute;
+  bottom: 8px;
+  right: 8px;
+  display: flex;
+  gap: 6px;
+  z-index: 10;
+  opacity: 0.3;
+  transition: opacity 0.3s ease;
+}
+
+.video-wrapper-container:hover .video-selector {
+  opacity: 1;
+}
+
+.selector-button {
+  padding: 6px 12px;
+  font-size: 0.7rem;
+  font-weight: 500;
+  color: #fff;
+  background-color: rgba(0, 0, 0, 0.7);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-family: inherit;
+}
+
+.selector-button:hover {
+  background-color: rgba(0, 0, 0, 0.85);
+  border-color: rgba(255, 255, 255, 0.4);
+  transform: translateY(-1px);
+}
+
+.selector-button.active {
+  background-color: rgba(255, 255, 255, 0.2);
+  border-color: rgba(255, 255, 255, 0.6);
+  font-weight: 600;
+}
+
+/* Footer copyright */
+.copyright {
+  text-align: center;
+  padding: 12px;
+  font-size: 0.75rem;
+  color: #666;
+  background-color: #1a1a1a;
+}
+
+/* Responsive pour mobile */
+@media (max-width: 768px) {
+  .video-grid {
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(4, 1fr);
+  }
+}
+
+/* Pour maximiser l'affichage sur TV/grand écran */
+@media (min-width: 1920px) {
+  .video-grid {
+    gap: 4px;
+    padding: 4px;
+  }
+}
