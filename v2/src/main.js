@@ -107,7 +107,7 @@ function initApp() {
   const videoGrid = document.createElement('div');
   videoGrid.className = 'video-grid';
 
-  // Ajout de toutes les vidéos
+  // Ajout des 3 premières vidéos fixes
   videoConfig.videos.forEach(video => {
     let videoElement;
 
@@ -120,6 +120,56 @@ function initApp() {
 
     videoGrid.appendChild(videoElement);
   });
+
+  // Ajout de la vidéo 4 avec sélecteur
+  const video4Container = document.createElement('div');
+  video4Container.className = 'video-wrapper-container';
+
+  // Récupération de la sélection sauvegardée
+  const currentSelection = getSavedSelection();
+
+  // Création de l'élément vidéo initial
+  let currentVideoElement = createIframeElement(currentSelection.url);
+  video4Container.appendChild(currentVideoElement);
+
+  // Fonction pour changer la vidéo
+  const changeVideo = (option) => {
+    // Suppression de l'ancienne vidéo
+    const oldVideo = video4Container.querySelector('.video-wrapper');
+    if (oldVideo) {
+      oldVideo.remove();
+    }
+
+    // Création de la nouvelle vidéo
+    currentVideoElement = createIframeElement(option.url);
+    video4Container.insertBefore(currentVideoElement, video4Container.querySelector('.video-selector'));
+
+    // Sauvegarde de la sélection
+    saveSelection(option.id);
+
+    // Mise à jour des boutons actifs
+    updateActiveButton(option.id);
+  };
+
+  // Création du sélecteur
+  const selector = createSelector(changeVideo);
+  video4Container.appendChild(selector);
+
+  // Fonction pour mettre à jour le bouton actif
+  const updateActiveButton = (activeId) => {
+    selector.querySelectorAll('.selector-button').forEach(btn => {
+      if (btn.dataset.optionId === activeId) {
+        btn.classList.add('active');
+      } else {
+        btn.classList.remove('active');
+      }
+    });
+  };
+
+  // Initialisation du bouton actif
+  updateActiveButton(currentSelection.id);
+
+  videoGrid.appendChild(video4Container);
 
   // Création du footer
   const footer = document.createElement('footer');
