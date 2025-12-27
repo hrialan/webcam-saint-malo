@@ -51,9 +51,21 @@ export const videoConfig = {
     '80s06q41pMo',  // Vidéo 1 (en haut à gauche)
     'p6nAlz4_bdI',  // Vidéo 2 (en haut à droite)
     'OzYp4NRZlwQ',  // Vidéo 3 (en bas à gauche) - Webcam Paris
+  ],
+
+  // Options pour la vidéo 4 (sélectionnable)
+  video4Options: [
     {
+      id: 'meteoblue-stmalo',
+      label: 'St-Malo',
       type: 'iframe',
-      url: 'https://www.meteoblue.com/en/weather/widget/meteogram/?geoloc=detect&temperature_units=CELSIUS&windspeed_units=KNOT&precipitation_units=MILLIMETER&forecast_days=5&layout=bright&autowidth=auto&user_key=16e89a11dcb472a8&embed_key=00cb4a74d2ee217d&sig=d4b3fff7c135ac78b617afc38c8881819c8123b47e0e1c407ebc565ab6f8d80a'
+      url: 'https://www.meteoblue.com/en/weather/widget/meteogram/st-malo_france_2978640?geoloc=fixed&temperature_units=CELSIUS&windspeed_units=KNOT&precipitation_units=MILLIMETER&forecast_days=4&layout=bright&autowidth=auto&user_key=16e89a11dcb472a8&embed_key=89a379049590549a&sig=6fa1e84b5775a2a05e444899a00468fb56de2493fe4463eafecf34f3aad366cf'
+    },
+    {
+      id: 'meteoblue-paris',
+      label: 'Paris',
+      type: 'iframe',
+      url: 'https://www.meteoblue.com/en/weather/widget/meteogram/paris_france_2988507?geoloc=fixed&temperature_units=CELSIUS&windspeed_units=KNOT&precipitation_units=MILLIMETER&forecast_days=4&layout=bright&autowidth=auto&user_key=16e89a11dcb472a8&embed_key=efbc2abfa6aeb9e3&sig=4f5123293c8c1790365df93a5b88d97e5bffd1dc65665327c5a4b0aa0ebb152d'
     }
   ]
 };
