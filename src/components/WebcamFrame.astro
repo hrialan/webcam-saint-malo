@@ -1,0 +1,76 @@
+---
+interface Props {
+  position: 'top-left' | 'top-right' | 'bottom-left' | 'bottom-right';
+  videoId: string | undefined;
+  label?: string;
+}
+
+const { position, videoId, label } = Astro.props;
+const accessibleLabel = label ?? `Webcam ${position.replace('-', ' ')}`;
+
+const embedSrc = videoId
+  ? `https://www.youtube-nocookie.com/embed/${videoId}?autoplay=1&mute=1&controls=0&modestbranding=1&rel=0&loop=1&playlist=${videoId}&playsinline=1`
+  : null;
+---
+
+<div class="webcam-frame" data-position={position}>
+  {
+    embedSrc ? (
+      <iframe
+        src={embedSrc}
+        title={accessibleLabel}
+        loading="lazy"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        allowfullscreen
+      />
+    ) : (
+      <div class="error" role="status" aria-live="polite">
+        <span>Video unavailable</span>
+        <small>Set the YouTube ID for {position}</small>
+      </div>
+    )
+  }
+</div>
+
+<style>
+  .webcam-frame {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    background-color: #1a1a1a;
+  }
+
+  iframe {
+    display: block;
+    width: 100%;
+    height: 100%;
+    border: 0;
+  }
+
+  .error {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    color: #999;
+    font-size: 0.9rem;
+    text-align: center;
+    padding: 1rem;
+    gap: 0.4rem;
+  }
+
+  .error small {
+    color: #555;
+    font-size: 0.75rem;
+  }
+
+  @media (max-width: 768px) {
+    .webcam-frame {
+      aspect-ratio: 16 / 9;
+      height: auto;
+    }
+  }
+</style>

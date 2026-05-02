@@ -1,0 +1,17 @@
+---
+import Layout from '../layouts/Layout.astro';
+import WebcamGrid from '../components/WebcamGrid.astro';
+
+const videos = {
+  topLeft: import.meta.env.YOUTUBE_VIDEO_TOP_LEFT_ID,
+  topRight: import.meta.env.YOUTUBE_VIDEO_TOP_RIGHT_ID,
+  bottomLeft: import.meta.env.YOUTUBE_VIDEO_BOTTOM_LEFT_ID,
+  bottomRight: import.meta.env.YOUTUBE_VIDEO_BOTTOM_RIGHT_ID,
+};
+---
+
+<Layout>
+  <main>
+    <WebcamGrid videos={videos} />
+  </main>
+</Layout>

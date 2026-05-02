@@ -1,0 +1,41 @@
+---
+import WebcamFrame from './WebcamFrame.astro';
+
+interface Props {
+  videos: {
+    topLeft: string | undefined;
+    topRight: string | undefined;
+    bottomLeft: string | undefined;
+    bottomRight: string | undefined;
+  };
+}
+
+const { videos } = Astro.props;
+---
+
+<section class="webcam-grid" aria-label="Live webcams grid">
+  <WebcamFrame position="top-left" videoId={videos.topLeft} />
+  <WebcamFrame position="top-right" videoId={videos.topRight} />
+  <WebcamFrame position="bottom-left" videoId={videos.bottomLeft} />
+  <WebcamFrame position="bottom-right" videoId={videos.bottomRight} />
+</section>
+
+<style>
+  .webcam-grid {
+    width: 100%;
+    height: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    gap: 2px;
+    background-color: #000;
+  }
+
+  @media (max-width: 768px) {
+    .webcam-grid {
+      grid-template-columns: 1fr;
+      grid-template-rows: repeat(4, auto);
+      height: auto;
+    }
+  }
+</style>
