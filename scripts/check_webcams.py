@@ -85,12 +85,16 @@ def check_webcam(position: str, video_id: str, debug: bool = False) -> Dict:
         # Check for live indicators in the HTML
         is_live = False
 
-        # Look for "isLive":true pattern (used in both local and GHA environments)
-        if re.search(r'"isLive"\s*:\s*true', html):
+        # First check if it's currently live (isLiveNow:true)
+        # This is the most reliable indicator for currently broadcasting streams
+        if re.search(r'"isLiveNow"\s*:\s*true', html):
             is_live = True
-
-        # Look for "isLiveContent":true pattern
-        if re.search(r'"isLiveContent"\s*:\s*true', html):
+        # Also check isLive:true (alternative pattern)
+        elif re.search(r'"isLive"\s*:\s*true', html):
+            is_live = True
+        # Also check isLiveContent:true but NOT if isLiveNow is false
+        # (to avoid false positives for VOD recordings of past livestreams)
+        elif re.search(r'"isLiveContent"\s*:\s*true', html) and not re.search(r'"isLiveNow"\s*:\s*false', html):
             is_live = True
 
         # Look for live badge indicators
@@ -102,6 +106,8 @@ def check_webcam(position: str, video_id: str, debug: bool = False) -> Dict:
             is_live = True
 
         if debug:
+            has_islive_now = bool(re.search(r'"isLiveNow"\s*:\s*true', html))
+            has_islive_now_false = bool(re.search(r'"isLiveNow"\s*:\s*false', html))
             has_islive = bool(re.search(r'"isLive"\s*:\s*true', html))
             has_live_content = bool(re.search(r'"isLiveContent"\s*:\s*true', html))
             has_lively_content = bool(re.search(r'"isLivelyContent"\s*:\s*true', html))
@@ -109,6 +115,8 @@ def check_webcam(position: str, video_id: str, debug: bool = False) -> Dict:
             print(f"\n[DEBUG] {position}:")
             print(f"  Video ID: {video_id}")
             print(f"  Title: {title}")
+            print(f"  Found 'isLiveNow': true: {has_islive_now}")
+            print(f"  Found 'isLiveNow': false: {has_islive_now_false}")
             print(f"  Found 'isLive': true: {has_islive}")
             print(f"  Found 'isLiveContent': true: {has_live_content}")
             print(f"  Found 'isLivelyContent': true: {has_lively_content}")
