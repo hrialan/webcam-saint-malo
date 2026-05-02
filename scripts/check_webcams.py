@@ -85,7 +85,11 @@ def check_webcam(position: str, video_id: str, debug: bool = False) -> Dict:
         # Check for live indicators in the HTML
         is_live = False
 
-        # Look for "isLiveContent":true or similar patterns
+        # Look for "isLive":true pattern (used in both local and GHA environments)
+        if re.search(r'"isLive"\s*:\s*true', html):
+            is_live = True
+
+        # Look for "isLiveContent":true pattern
         if re.search(r'"isLiveContent"\s*:\s*true', html):
             is_live = True
 
@@ -98,22 +102,18 @@ def check_webcam(position: str, video_id: str, debug: bool = False) -> Dict:
             is_live = True
 
         if debug:
+            has_islive = bool(re.search(r'"isLive"\s*:\s*true', html))
             has_live_content = bool(re.search(r'"isLiveContent"\s*:\s*true', html))
             has_lively_content = bool(re.search(r'"isLivelyContent"\s*:\s*true', html))
             has_live_badge = bool(re.search(r'"simpleText"\s*:\s*"(?:LIVE|EN DIRECT)"', html))
             print(f"\n[DEBUG] {position}:")
             print(f"  Video ID: {video_id}")
             print(f"  Title: {title}")
+            print(f"  Found 'isLive': true: {has_islive}")
             print(f"  Found 'isLiveContent': true: {has_live_content}")
             print(f"  Found 'isLivelyContent': true: {has_lively_content}")
             print(f"  Found LIVE badge: {has_live_badge}")
             print(f"  Is Live: {is_live}")
-
-            # Show some context from HTML if none matched
-            if not is_live:
-                live_matches = re.findall(r'isLive[^}]{0,50}', html)
-                if live_matches:
-                    print(f"  Found 'isLive*' patterns: {live_matches[:2]}")
 
         return {
             'position': position,
