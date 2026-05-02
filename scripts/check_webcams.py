@@ -99,13 +99,21 @@ def check_webcam(position: str, video_id: str, debug: bool = False) -> Dict:
 
         if debug:
             has_live_content = bool(re.search(r'"isLiveContent"\s*:\s*true', html))
+            has_lively_content = bool(re.search(r'"isLivelyContent"\s*:\s*true', html))
             has_live_badge = bool(re.search(r'"simpleText"\s*:\s*"(?:LIVE|EN DIRECT)"', html))
             print(f"\n[DEBUG] {position}:")
             print(f"  Video ID: {video_id}")
             print(f"  Title: {title}")
             print(f"  Found 'isLiveContent': true: {has_live_content}")
+            print(f"  Found 'isLivelyContent': true: {has_lively_content}")
             print(f"  Found LIVE badge: {has_live_badge}")
             print(f"  Is Live: {is_live}")
+
+            # Show some context from HTML if none matched
+            if not is_live:
+                live_matches = re.findall(r'isLive[^}]{0,50}', html)
+                if live_matches:
+                    print(f"  Found 'isLive*' patterns: {live_matches[:2]}")
 
         return {
             'position': position,

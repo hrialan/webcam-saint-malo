@@ -27,7 +27,7 @@ jobs:
           TOP_RIGHT: ${{ vars.YOUTUBE_VIDEO_TOP_RIGHT_ID }}
           BOTTOM_LEFT: ${{ vars.YOUTUBE_VIDEO_BOTTOM_LEFT_ID }}
           BOTTOM_RIGHT: ${{ vars.YOUTUBE_VIDEO_BOTTOM_RIGHT_ID }}
-        run: python3 scripts/check_webcams.py --top-left "$TOP_LEFT" --top-right "$TOP_RIGHT" --bottom-left "$BOTTOM_LEFT" --bottom-right "$BOTTOM_RIGHT"
+        run: python3 scripts/check_webcams.py --top-left "$TOP_LEFT" --top-right "$TOP_RIGHT" --bottom-left "$BOTTOM_LEFT" --bottom-right "$BOTTOM_RIGHT" --debug
 
       - name: Create issue if webcams are down
         if: steps.check.outcome == 'failure'
