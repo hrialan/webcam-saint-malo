@@ -14,100 +14,15 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Setup Node.js
-        uses: actions/setup-node@v4
+      - name: Setup Python
+        uses: actions/setup-python@v5
         with:
-          node-version: 20
-
-      - name: Create webcam checker script
-        run: |
-          cat > check-webcams.mjs << 'EOF'
-          import https from 'https';
-
-          const WEBCAM_IDS = {
-            'top-left': '${{ vars.YOUTUBE_VIDEO_TOP_LEFT_ID }}',
-            'top-right': '${{ vars.YOUTUBE_VIDEO_TOP_RIGHT_ID }}',
-            'bottom-left': '${{ vars.YOUTUBE_VIDEO_BOTTOM_LEFT_ID }}',
-            'bottom-right': '${{ vars.YOUTUBE_VIDEO_BOTTOM_RIGHT_ID }}'
-          };
-
-          async function checkWebcam(position, videoId) {
-            return new Promise((resolve) => {
-              const url = `https://www.youtube.com/oembed?url=https://www.youtube.com/watch?v=${videoId}&format=json`;
-
-              https.get(url, (res) => {
-                let data = '';
-                res.on('data', chunk => data += chunk);
-                res.on('end', () => {
-                  try {
-                    const json = JSON.parse(data);
-                    const isLive = json.title.toLowerCase().includes('live') ||
-                                   json.title.toLowerCase().includes('en direct');
-                    resolve({
-                      position,
-                      videoId,
-                      status: 'accessible',
-                      isLive: isLive,
-                      title: json.title,
-                      statusCode: res.statusCode
-                    });
-                  } catch (e) {
-                    resolve({
-                      position,
-                      videoId,
-                      status: 'error',
-                      error: e.message,
-                      statusCode: res.statusCode
-                    });
-                  }
-                });
-              }).on('error', (err) => {
-                resolve({
-                  position,
-                  videoId,
-                  status: 'error',
-                  error: err.message
-                });
-              });
-            });
-          }
-
-          async function main() {
-            const results = await Promise.all(
-              Object.entries(WEBCAM_IDS).map(([position, videoId]) =>
-                checkWebcam(position, videoId)
-              )
-            );
-
-            console.log('Webcam Status Report:');
-            console.log('====================');
-
-            const failures = results.filter(r => r.status !== 'accessible');
-
-            results.forEach(result => {
-              const status = result.status === 'accessible' ? '✓' : '✗';
-              console.log(`${status} ${result.position}: ${result.videoId}`);
-              if (result.title) console.log(`  Title: ${result.title}`);
-              if (result.error) console.log(`  Error: ${result.error}`);
-              if (result.statusCode) console.log(`  HTTP: ${result.statusCode}`);
-            });
-
-            if (failures.length > 0) {
-              console.log('\nFailed webcams detected!');
-              process.exit(1);
-            }
-
-            process.exit(0);
-          }
-
-          main();
-          EOF
-        shell: bash
+          python-version: '3.11'
 
       - name: Check webcams availability
         id: check
         continue-on-error: true
-        run: node check-webcams.mjs
+        run: python3 check_webcams.py
 
       - name: Create issue if webcams are down
         if: steps.check.outcome == 'failure'
