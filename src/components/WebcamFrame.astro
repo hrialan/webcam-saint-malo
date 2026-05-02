@@ -5,12 +5,29 @@ interface Props {
   label?: string;
 }
 
+const YOUTUBE_EMBED_PARAMS = {
+  autoplay: 1,
+  mute: 1,
+  controls: 0,
+  modestbranding: 1,
+  rel: 0,
+  loop: 1,
+  playsinline: 1,
+};
+
 const { position, videoId, label } = Astro.props;
 const accessibleLabel = label ?? `Webcam ${position.replace('-', ' ')}`;
 
-const embedSrc = videoId
-  ? `https://www.youtube-nocookie.com/embed/${videoId}?autoplay=1&mute=1&controls=0&modestbranding=1&rel=0&loop=1&playlist=${videoId}&playsinline=1`
-  : null;
+const buildYouTubeUrl = (id: string) => {
+  const params = new URLSearchParams();
+  Object.entries(YOUTUBE_EMBED_PARAMS).forEach(([key, value]) => {
+    params.set(key, String(value));
+  });
+  params.set('playlist', id);
+  return `https://www.youtube-nocookie.com/embed/${id}?${params}`;
+};
+
+const embedSrc = videoId ? buildYouTubeUrl(videoId) : null;
 ---
 
 <div class="webcam-frame" data-position={position}>
@@ -39,7 +56,7 @@ const embedSrc = videoId
     height: 100%;
     overflow: hidden;
     background-color: #1a1a1a;
-    border-radius: 12px;
+    border-radius: 6px;
   }
 
   iframe {
@@ -47,7 +64,7 @@ const embedSrc = videoId
     width: 100%;
     height: 100%;
     border: 0;
-    border-radius: 12px;
+    border-radius: 6px;
     transform: scale(1.05);
   }
 

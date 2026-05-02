@@ -1,6 +1,8 @@
 ---
 import WebcamFrame from './WebcamFrame.astro';
 
+type Position = 'top-left' | 'top-right' | 'bottom-left' | 'bottom-right';
+
 interface Props {
   videos: {
     topLeft: string | undefined;
@@ -11,13 +13,23 @@ interface Props {
 }
 
 const { videos } = Astro.props;
+
+const GRID_POSITIONS: readonly Position[] = ['top-left', 'top-right', 'bottom-left', 'bottom-right'];
+
+const POSITION_TO_KEY: Record<Position, keyof typeof videos> = {
+  'top-left': 'topLeft',
+  'top-right': 'topRight',
+  'bottom-left': 'bottomLeft',
+  'bottom-right': 'bottomRight',
+};
+
+const getVideoId = (position: Position): string | undefined => videos[POSITION_TO_KEY[position]];
 ---
 
 <section class="webcam-grid" aria-label="Live webcams grid">
-  <WebcamFrame position="top-left" videoId={videos.topLeft} />
-  <WebcamFrame position="top-right" videoId={videos.topRight} />
-  <WebcamFrame position="bottom-left" videoId={videos.bottomLeft} />
-  <WebcamFrame position="bottom-right" videoId={videos.bottomRight} />
+  {GRID_POSITIONS.map(position => (
+    <WebcamFrame position={position} videoId={getVideoId(position)} />
+  ))}
 </section>
 
 <style>
