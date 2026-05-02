@@ -15,7 +15,7 @@ DEFAULT_WEBCAM_IDS = {
     'top-left': 'VNOV8KgGR0c',
     'top-right': 'p6nAlz4_bdI',
     'bottom-left': 'OzYp4NRZlwQ',
-    'bottom-right': 'pCycfWCb3Ts'
+    'bottom-right': '80s06q41pMo'
 }
 
 
@@ -178,20 +178,28 @@ def main(debug: bool = False, webcam_ids: Dict = None):
         if result.get('status_code'):
             print(f"  HTTP: {result['status_code']}")
 
-    # Check for failures
+    # Check for failures and non-live streams
     failures = [r for r in results if r['status'] != 'accessible']
     non_live = [r for r in results if r['status'] == 'accessible' and not r.get('is_live', False)]
 
-    if non_live:
-        print(f"\n⚠️  Warning: {len(non_live)} webcam(s) are NOT currently broadcasting:")
-        for result in non_live:
-            print(f"  - {result['position']}: {result.get('title', 'Unknown')}")
+    has_errors = False
 
     if failures:
-        print(f"\n❌ Error: {len(failures)} webcam(s) failed!")
+        print(f"\n❌ Error: {len(failures)} webcam(s) are not accessible!")
+        for result in failures:
+            print(f"  - {result['position']}: {result.get('error', 'Unknown error')}")
+        has_errors = True
+
+    if non_live:
+        print(f"\n❌ Error: {len(non_live)} webcam(s) are NOT currently broadcasting:")
+        for result in non_live:
+            print(f"  - {result['position']}: {result.get('title', 'Unknown')}")
+        has_errors = True
+
+    if has_errors:
         sys.exit(1)
 
-    print('\n✅ All webcams are accessible!')
+    print('\n✅ All webcams are live and accessible!')
     sys.exit(0)
 
 
