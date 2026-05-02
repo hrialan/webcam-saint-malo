@@ -21,8 +21,8 @@ jobs:
 
       - name: Create webcam checker script
         run: |
-          cat > check-webcams.js << 'EOF'
-          const https = require('https');
+          cat > check-webcams.mjs << 'EOF'
+          import https from 'https';
 
           const WEBCAM_IDS = {
             'top-left': '${{ vars.YOUTUBE_VIDEO_TOP_LEFT_ID }}',
@@ -107,7 +107,7 @@ jobs:
       - name: Check webcams availability
         id: check
         continue-on-error: true
-        run: node check-webcams.js
+        run: node check-webcams.mjs
 
       - name: Create issue if webcams are down
         if: steps.check.outcome == 'failure'
