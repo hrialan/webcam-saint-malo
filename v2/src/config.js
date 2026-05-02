@@ -48,7 +48,7 @@ function generateMeteoblueUrl({ slug, country = 'france', id, apiKeys = null }) 
 
 export const videoConfig = {
   videos: [
-    '80s06q41pMo',  // Vidéo 1 (en haut à gauche)
+    'VNOV8KgGR0c',  // Vidéo 1 (en haut à gauche)
     'p6nAlz4_bdI',  // Vidéo 2 (en haut à droite)
     'OzYp4NRZlwQ',  // Vidéo 3 (en bas à gauche) - Webcam Paris
   ],
